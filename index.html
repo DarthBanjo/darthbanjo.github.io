@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" href="./css/stylesheet.css" type="text/css" charset="utf-8" />
+  <script src="scripts.js"></script>
+  </head>
+  <body>
+    <input id="source" type="text" oninput="copyData('source', 'brakmarianText')"  />
+    <div id="brakmarianText"></div>
+    <script type="text/javascript">
+      function copyData(sourceId, targetId) {
+        var data = document.getElementById(sourceId).value;
+        document.getElementById(targetId).innerHTML = data;
+      }
+  </script>
+  <button id="printButton">Download</button>
+      <script type="text/javascript"> 
+  var node = document.getElementById('brakmarianText');
+var btn = document.getElementById('printButton');
+
+
+/*downloader Button*/
+btn.onclick = function() {
+node.innerHTML 
+	domtoimage.toBlob(document.getElementById('brakmarianText'),
+		{style: {'fontFamily': "brakmarianregular"}})
+    .then(function(blob) {
+      window.saveAs(blob, 'brakmarianText.png');
+    });
+}
+</script>
+<div id="result">
+  </body>
+</html>
